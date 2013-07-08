@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/home/dotancohen/code/test/disco_prediction'
+let g:netrw_dirhist_2='/home/dotancohen/inOut/fThunderbird/stas'
+let g:netrw_dirhist_3='/home/dotancohen'
+let g:netrw_dirhist_4='/home/dotancohen/code/dotancohen/utility-functions'
+let g:netrw_dirhist_5='/etc/php5/conf.d'
+let g:netrw_dirhist_6='/home/dotancohen/code/discoapi/public_html/thirdparty'

@@ -1,0 +1,1 @@
+NrrwRgn-0.28.vmb: call delete('/home/dotancohen/.vim/plugin/NrrwRgn.vim')|call delete('/home/dotancohen/.vim/autoload/nrrwrgn.vim')|call delete('/home/dotancohen/.vim/doc/NarrowRegion.txt')
