@@ -1,4 +1,4 @@
-" 2013-05-27
+" 2013-07-08
 
 "Press \d to insert debug() function calls
 "Press \id to insert debug() function
@@ -80,6 +80,8 @@ autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 autocmd FileType c set omnifunc=ccomplete#Complete
+
+:au BufNewFile,BufRead *.html set filetype=php
 
 
 " Highlight non-ascii characters
