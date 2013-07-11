@@ -1,4 +1,5 @@
 " 2013-07-08
+" In git dotfiles!
 
 "Press \d to insert debug() function calls
 "Press \id to insert debug() function
