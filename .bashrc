@@ -140,6 +140,7 @@ alias h='vim ~/inOut/tHome/notes.txt'
 alias spRunning='ps -A -o pid,cmd | grep PYSPI | grep -v grep'
 alias spider-start='nohup python  ~/.bin/PYSPI-0.7-Spider.py > /dev/null 2>&1 &'
 alias c='clear;pwd;whoami'
+alias o='kde-open'
 
 
 
