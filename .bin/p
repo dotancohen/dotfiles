@@ -1,0 +1,3 @@
+#!/bin/bash
+#/ramdisk/bin/bash
+php -dhtml_errors=0 -ddisplay_errors=On -l $@
