@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Easy login to servers (instances) running on Amazon Web Services
+
+if [ "$1" = "beta" ]; then
+	IPADDRESS=""
+	USERNAME=""
+	PEM=""
+elif [ "$1" = "phantom-server" ]; then
+	IPADDRESS=""
+	USERNAME=""
+	PEM=""
+else
+	IPADDRESS=""
+	USERNAME=""
+	PEM=""
+fi
+
+
+ssh -o "StrictHostKeyChecking no" -o "UserKnownHostsFile /dev/null" -i $PEM $USERNAME@$IPADDRESS
