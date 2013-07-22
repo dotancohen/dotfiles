@@ -1,4 +1,4 @@
-" 2013-07-08
+" 2013-07-22
 " In git dotfiles!
 
 "Press \d to insert debug() function calls
@@ -38,10 +38,6 @@ set tags=~/tags
 
 
 
-autocmd BufNewFile,BufRead COMMIT_EDITMSG set paste
-autocmd BufLeave COMMIT_EDITMSG set nopaste
-
-
 set nocompatible
 set noexpandtab
 set hidden
@@ -73,7 +69,6 @@ syntax on
 cmap w!! exec 'w !sudo dd of=' . shellescape(expand('%'))
 
 
-
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
@@ -82,7 +77,26 @@ autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 autocmd FileType c set omnifunc=ccomplete#Complete
 
+
+" Git commit messages
+
+autocmd BufNewFile,BufRead COMMIT_EDITMSG set paste
+autocmd BufLeave COMMIT_EDITMSG set nopaste
+
+
+" PHP
+
 :au BufNewFile,BufRead *.html set filetype=php
+"Press \// to comment the current line and copy it below
+:au BufNewFile,BufRead *.php noremap <leader>// <Esc>YpkI//<space><Esc>j0
+:au BufNewFile,BufRead *.html noremap <leader>// <Esc>YpkI//<space><Esc>j0
+
+
+
+" Python
+"Press \// to comment the current line and copy it below
+:au BufNewFile,BufRead *.py noremap <leader>// <Esc>YpkI#<space><Esc>j0
+
 
 
 " Highlight non-ascii characters
@@ -90,9 +104,20 @@ syntax match nonascii "[^\x00-\x7F]"
 highlight nonascii guibg=Red ctermbg=2
 
 
+" Signs
+
 let g:Signs_Bookmarks = 1
 let g:Signs_MixedIndentation = 1
 let g:Signs_Diff = 1
+
+
+" Tagslist
+
+let Tlist_Close_On_Select = 1
+let Tlist_Enable_Fold_Column = 0
+let Tlist_GainFocus_On_ToggleOpen = 1
+let Tlist_Use_Right_Window = 1
+nnoremap <leader><space> <Esc>:TlistToggle<Return>
 
 
 
@@ -110,6 +135,7 @@ set stl=%!STL()
 
 nnoremap , :
 nnoremap <Space> <C-F>
+nnoremap <Backspace> <C-B>
 nnoremap <Tab> $%
 nnoremap <leader>b :b#<Return>
 nnoremap <leader>l :ls<Return>
@@ -128,9 +154,6 @@ nnoremap <leader>d <Esc>Odebug($);<Left><Left>
 "Press \id to insert debug() function
 nnoremap <leader>id <Esc>Ofunction debug($var)<Return>{<Return>echo "<pre>";<Return>var_dump($var);<Return>echo "</pre>";<Return>return TRUE;<Return>}<Return><Return>
 
-
-"Press \// to comment the current line and copy it below
-noremap <leader>// <Esc>YpkI//<Esc>j0
 
 "Press ^R in Visual mode to replace selected text
 vnoremap <C-r> "py:%s/<C-r>p//gc<left><left><left>
