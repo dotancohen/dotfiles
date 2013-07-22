@@ -1,0 +1,3 @@
+#!/bin/bash
+echo -n "$(pwd)   $(date)   "
+grep --color -E -- "$(ls -rtl $@ | tail -n3)|$" <(ls -l $@)
