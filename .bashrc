@@ -117,20 +117,37 @@ fi
 # VI keybindings on the CLI
 #set -o vi
 
+
+
+# Ubuntu's settings above
+
+# Dotan's setting below
+
+
+
+PATH=$HOME/.bin:$PATH
+export PATH
+
+export LC_ALL=""
+export LC_TIME="en_DK.utf8"
+
 export EDITOR=vi
 
+HISTSIZE=10000
+HISTFILESIZE=10000
+HISTCONTROL=ignoredups
 
-
-export LC_TIME="en_DK.utf8"
 #PS1="✈\h:\W$ "
 #PS1="\e[1;32m - \h:\W$\e[m "
-PS1=" - \h:\W$ "
+#PS1=" - \h:\W$ "
+PS1="\e[1;32m - \h:\W$\e[m "
+
+
 
 #export BROWSER=/home/dotancohen/.bin/firefox-P-default
 export TERM=xterm-256color
 
 
-PATH=$HOME/.bin:$PATH
 
 alias memgone='ps aux | awk '"'"'$11!~/\[*\]/ {print $6/1024" Mb --> "$11,$12,$13,$14}'"'"' | sort -g | tail'
 alias :q!='exit'
@@ -141,6 +158,7 @@ alias spRunning='ps -A -o pid,cmd | grep PYSPI | grep -v grep'
 alias spider-start='nohup python  ~/.bin/PYSPI-0.7-Spider.py > /dev/null 2>&1 &'
 alias c='clear;pwd;whoami'
 alias o='kde-open'
+alias diff='colordiff -U3'
 
 
 
@@ -170,7 +188,7 @@ function say {
 
 function תגיד {
 	ARGS="$(concatenate_args "$@")"
-	mplayer -really-quiet "http://translate.google.com/translate_tts?tl=he&q=$ARGS";
+	mplayer -really-quiet "http://translate.google.com/translate_tts?tl=iw&q=$ARGS";
 }
 
 function concatenate_args
