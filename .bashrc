@@ -10,6 +10,8 @@
 
 # In git dotfiles!
 
+
+
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
@@ -17,16 +19,8 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
-# don't put duplicate lines in the history. See bash(1) for more options
-# don't overwrite GNU Midnight Commander's setting of `ignorespace'.
-HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups
-# ... or force ignoredups and ignorespace
-HISTCONTROL=ignoreboth
-
 # append to the history file, don't overwrite it
 shopt -s histappend
-
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -103,16 +97,12 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-
-
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
 #if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 #    . /etc/bash_completion
 #fi
-
-
 
 # VI keybindings on the CLI
 #set -o vi
@@ -124,6 +114,9 @@ fi
 # Dotan's setting below
 
 
+# When `cd`ing into a symlink, use the canonical directory path
+# http://unix.stackexchange.com/questions/56320/create-a-link-but-dont-change-the-canonical-path
+set -o physical
 
 PATH=$HOME/.bin:$PATH
 export PATH
@@ -133,36 +126,45 @@ export LC_TIME="en_DK.utf8"
 
 export EDITOR=vi
 
+# http://superuser.com/questions/37576/can-history-files-be-unified-in-bash
+shopt -s histappend # append to the history file, don't overwrite it
 HISTSIZE=10000
 HISTFILESIZE=10000
 HISTCONTROL=ignoredups
 
-#PS1="✈\h:\W$ "
-#PS1="\e[1;32m - \h:\W$\e[m "
-#PS1=" - \h:\W$ "
-PS1="\e[1;32m - \h:\W$\e[m "
-
-
-
 #export BROWSER=/home/dotancohen/.bin/firefox-P-default
 export TERM=xterm-256color
 
-
+complete -d cd pushd rmdir
 
 alias memgone='ps aux | awk '"'"'$11!~/\[*\]/ {print $6/1024" Mb --> "$11,$12,$13,$14}'"'"' | sort -g | tail'
 alias :q!='exit'
-alias ff='cd /home/dotancohen/inOut/fromFirefox/'
-alias spRunning='ps -A -o pid,cmd | grep PYSPI | grep -v grep'
-alias h='vim ~/inOut/tHome/notes.txt'
-alias spRunning='ps -A -o pid,cmd | grep PYSPI | grep -v grep'
-alias spider-start='nohup python  ~/.bin/PYSPI-0.7-Spider.py > /dev/null 2>&1 &'
 alias c='clear;pwd;whoami'
 alias o='kde-open'
 alias diff='colordiff -U3'
 
+#PS1="✈\h:\W$ "
+#PS1="\e[1;32m - \h:\W$\e[m "
+PROMPT_COMMAND=$(
+    cat<<-'EOF'
 
+    retval=$?
 
-# Version 2013-06-20
+    RED=$(tput setaf 1)
+    GREEN=$(tput setaf 2)
+    STOP=$(tput sgr0)
+
+    c=0
+    for i in $retval ${PIPESTATUS[@]}; do ((c += $i)); done
+
+    if (($c == 0)); then
+        PS1="\[$GREEN\] - \h(${WINDOW}):\W$ \[$STOP\]"
+    else
+        PS1="\[$RED\] - \h(${WINDOW}):\W$ \[$STOP\]"
+    fi
+EOF
+)
+
 function newpass {
 	n=0
 	if [[ "$1" =~ ^[0-9]+$ ]]; then
@@ -181,6 +183,7 @@ function newpass {
 # No `!$'"\ because of Bash issues
 
 
+
 function say {
 	ARGS="$(concatenate_args "$@")"
 	mplayer -really-quiet "http://translate.google.com/translate_tts?tl=en&q=$ARGS";
@@ -190,6 +193,8 @@ function תגיד {
 	ARGS="$(concatenate_args "$@")"
 	mplayer -really-quiet "http://translate.google.com/translate_tts?tl=iw&q=$ARGS";
 }
+
+
 
 function concatenate_args
 {
@@ -209,6 +214,8 @@ function concatenate_args
 }
 
 
+
+# What is this for?
 output_selection()
 {
     local i=-1;
@@ -234,6 +241,7 @@ output_selection()
 }
 
 
+
 # Write out a more usable vim config:
 # Add whole ~/.vimrc and ~/.vim/ here
 # This will be easy to wget from dotancohen.com and run on any server.
@@ -248,8 +256,25 @@ output_selection()
 #VIMCONFIG
 #}
 
+
+
+
+
+#alias my="mysql -u'someUser' -p'somePassword' someDatabase"
+
+######################################
+###
+### Settings specific for this machine
+
 # Logins
 
+
+
+
+
+######################################
+###
+### Goodbye!
 
 fortunes
 echo "Sourced .bashrc"
