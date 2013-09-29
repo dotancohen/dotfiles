@@ -260,7 +260,7 @@ output_selection()
 
 
 
-#alias my="mysql -u'someUser' -p'somePassword' someDatabase"
+#alias my="mysql -u'someUser' -p'somePassword' -U someDatabase"
 
 ######################################
 ###
