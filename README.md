@@ -14,7 +14,23 @@ TODO
 
 
 
+INSTALL
+-------
+
+Use the following command to move the dotfiles to their proper location:
+
+    mv .[!(|.|.git)]* ~
+
+
+
 BONUS - INSTALL FAVORITE PACKAGES
 ---------------------------------
 
-sudo apt-get install git nmap w3m aptitude tmux exuberant-ctags
+    sudo apt-get install tmux vim git nmap w3m tree aptitude exuberant-ctags
+
+
+
+DOUBLE BONUS - INSTALL TYPICAL UBUNTU SERVER PACKAGES
+-----------------------------------------------------
+
+    sudo aptitude install vim zip unzip ruby openssl libopenssl-ruby curl apache2 php5 libapache2-mod-php5 mysql-server libapache2-mod-auth-mysql php5-mysql openjdk-6-jdk ec2-api-tools ec2-ami-tools gnuplot-nox python-gnuplot ntp exuberant-ctags php5-xdebug screen tmux tree git
