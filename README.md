@@ -33,4 +33,4 @@ BONUS - INSTALL FAVORITE PACKAGES
 DOUBLE BONUS - INSTALL TYPICAL UBUNTU SERVER PACKAGES
 -----------------------------------------------------
 
-    sudo aptitude install vim zip unzip ruby openssl libopenssl-ruby curl apache2 php5 libapache2-mod-php5 mysql-server libapache2-mod-auth-mysql php5-mysql openjdk-6-jdk ec2-api-tools ec2-ami-tools gnuplot-nox python-gnuplot ntp exuberant-ctags php5-xdebug screen tmux tree git
+    sudo aptitude install zip unzip ruby openssl libopenssl-ruby curl apache2 php5 libapache2-mod-php5 mysql-server libapache2-mod-auth-mysql php5-mysql openjdk-6-jdk ec2-api-tools ec2-ami-tools gnuplot-nox python-gnuplot ntp php5-xdebug screen colordiff sysstat
