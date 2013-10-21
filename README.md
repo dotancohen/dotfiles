@@ -19,7 +19,7 @@ INSTALL
 
 Use the following command to move the dotfiles to their proper location:
 
-    mv .[!(|.|.git)]* ~
+    cp -R .[!(|.|.git)]* ~
 
 
 
