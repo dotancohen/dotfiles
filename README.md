@@ -27,6 +27,7 @@ BONUS - INSTALL FAVORITE PACKAGES
 ---------------------------------
 
     sudo apt-get install tmux vim git nmap w3m tree aptitude exuberant-ctags
+	sudo update-alternatives --config editor
 
 
 

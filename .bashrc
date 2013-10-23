@@ -124,7 +124,7 @@ export PATH
 export LC_ALL=""
 export LC_TIME="en_DK.utf8"
 
-export EDITOR=vi
+export EDITOR=vim
 
 # http://superuser.com/questions/37576/can-history-files-be-unified-in-bash
 shopt -s histappend # append to the history file, don't overwrite it
@@ -276,5 +276,4 @@ output_selection()
 ###
 ### Goodbye!
 
-fortunes
 echo "Sourced .bashrc"
