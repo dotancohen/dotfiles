@@ -1,6 +1,7 @@
 " 2013-11-19
 " In git dotfiles!
 
+"Press \a to find non-ascii characters
 "Press \d to insert debug() function calls
 "Press \id to insert debug() function
 "Press ^R in Visual mode to replace selected text
@@ -558,6 +559,17 @@ autocmd BufWinEnter * match InterestingCharacters /\%108v.\+\|\s\+$\|[^\x00-\x7F
 autocmd InsertEnter * match InterestingCharacters /\%108v.\+\|\s\+$\|[^\x00-\x7F]/
 autocmd InsertLeave * match InterestingCharacters /\%108v.\+\|\s\+$\|[^\x00-\x7F]/
 autocmd BufWinLeave * call clearmatches()
+
+
+
+" Find non-ascii characters in file
+" http://stackoverflow.com/a/17133637/343302
+
+function! FindNonAscii()
+	normal /[^\x00-\x7F]
+endfunction
+nnoremap <leader>a :call FindNonAscii()<CR>
+
 
 
 
