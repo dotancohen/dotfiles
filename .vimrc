@@ -1,4 +1,4 @@
-" 2013-07-22
+" 2013-11-19
 " In git dotfiles!
 
 "Press \d to insert debug() function calls
@@ -97,11 +97,6 @@ autocmd BufLeave COMMIT_EDITMSG set nopaste
 "Press \// to comment the current line and copy it below
 :au BufNewFile,BufRead *.py noremap <leader>// <Esc>YpkI#<space><Esc>j0
 
-
-
-" Highlight non-ascii characters
-syntax match nonascii "[^\x00-\x7F]"
-highlight nonascii guibg=Red ctermbg=2
 
 
 " Signs
@@ -544,12 +539,24 @@ hi def link User2 DiffDelete
 
 
 
-" BIG RED TRAILING WHITESPACE
-highlight ExtraWhitespace ctermbg=red guibg=red
-match ExtraWhitespace /\s\+$/
-autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
-autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+" MATCH INTERESTING AND SIGNIFICANT CHARACTERS
+
+" Match characters past the 108th column
+" \%108v.\+
+
+" Match trailing whitespace
+" \s\+$
+
+" Match non-ascii characters
+" [^\x00-\x7F]
+
+highlight InterestingCharacters ctermbg=darkblue guibg=darkblue
+"highlight InterestingCharacters ctermbg=red guibg=red
+"highlight InterestingCharacters guibg=Red ctermbg=2
+match InterestingCharacters /\%108v.\+\|\s\+$\|[^\x00-\x7F]/
+autocmd BufWinEnter * match InterestingCharacters /\%108v.\+\|\s\+$\|[^\x00-\x7F]/
+autocmd InsertEnter * match InterestingCharacters /\%108v.\+\|\s\+$\|[^\x00-\x7F]/
+autocmd InsertLeave * match InterestingCharacters /\%108v.\+\|\s\+$\|[^\x00-\x7F]/
 autocmd BufWinLeave * call clearmatches()
 
 
