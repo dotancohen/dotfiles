@@ -17,13 +17,19 @@ TODO
 INSTALL
 -------
 
-Use the following command to move the dotfiles to their proper location:
+Use the following commands to download the dotfiles and to move them to their proper location:
 
 ### Ubuntu Server
+	wget http://github.com/dotancohen/dotfiles/archive/master.tar.gz
+	tar -xzf master.tar.gz
+	cd dotfiles-master/
     cp -R .[!(|.|.git)]* ~
 
 
 ### CentOS
+	wget http://github.com/dotancohen/dotfiles/archive/master.tar.gz
+	tar -xzf master.tar.gz
+	cd dotfiles-master/
     cp .bash_profile ~
     cp .bashrc ~
     cp -r .bin ~
