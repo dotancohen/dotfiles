@@ -45,12 +45,12 @@ BONUS - INSTALL FAVORITE PACKAGES
 ---------------------------------
 
 ### Ubuntu Server
-    sudo apt-get install tmux vim git nmap w3m tree aptitude exuberant-ctags
+    sudo apt-get install tmux vim git nmap w3m tree aptitude exuberant-ctags ncdu
 	sudo update-alternatives --config editor
 
 
 ### CentOS
-	yum install vim-enhanced git-core nmap w3m tree ctags
+	yum install vim-enhanced git-core nmap w3m tree ctags ncdu
 	wget http://pkgs.repoforge.org/tmux/tmux-1.6-1.el6.rf.x86_64.rpm
 
 	Or download the latest tmux from: http://pkgs.repoforge.org/tmux/
