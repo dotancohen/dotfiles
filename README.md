@@ -45,12 +45,12 @@ BONUS - INSTALL FAVORITE PACKAGES
 ---------------------------------
 
 ### Ubuntu Server
-    sudo apt-get install tmux vim git nmap w3m tree aptitude exuberant-ctags ncdu
+    sudo apt-get install tmux vim git nmap w3m tree aptitude exuberant-ctags ncdu colordiff
 	sudo update-alternatives --config editor
 
 
 ### CentOS
-	yum install vim-enhanced git-core nmap w3m tree ctags ncdu
+	yum install vim-enhanced git-core nmap w3m tree ctags ncdu colordiff
 	wget http://pkgs.repoforge.org/tmux/tmux-1.6-1.el6.rf.x86_64.rpm
 
 	Or download the latest tmux from: http://pkgs.repoforge.org/tmux/
@@ -61,7 +61,7 @@ DOUBLE BONUS - INSTALL TYPICAL SERVER PACKAGES
 ----------------------------------------------
 
 ### Ubuntu Server
-    sudo aptitude install zip unzip ruby openssl libopenssl-ruby curl apache2 php5 php5-curl libapache2-mod-php5 mysql-server libapache2-mod-auth-mysql php5-mysql openjdk-6-jdk gnuplot-nox python-gnuplot ntp php5-xdebug screen colordiff sysstat build-essential
+    sudo aptitude install zip unzip ruby openssl libopenssl-ruby curl apache2 php5 php5-curl libapache2-mod-php5 mysql-server libapache2-mod-auth-mysql php5-mysql openjdk-6-jdk gnuplot-nox python-gnuplot ntp php5-xdebug sysstat build-essential
 	sudo aptitude install ec2-api-tools ec2-ami-tools
 
 #### Install PHP OAuth support
