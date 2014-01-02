@@ -64,7 +64,8 @@ DOUBLE BONUS - INSTALL TYPICAL SERVER PACKAGES
 	sudo aptitude install zip unzip ruby openssl libopenssl-ruby curl apache2 php5 php5-curl libapache2-mod-php5 mysql-server libapache2-mod-auth-mysql php5-mysql openjdk-6-jdk gnuplot-nox python-gnuplot ntp php5-xdebug sysstat build-essential
 	sudo aptitude install ec2-api-tools ec2-ami-tools
 
-#### Install PHP OAuth support
+#### Install PHP OAuth and crypto support
+	sudo aptitude install php5-mcrypt liboauth-php php-pear php5-dev libpcre3-dev php-crypt-blowfish 
 	sudo pecl install oauth
 	sudo vim /etc/php5/conf.d/oauth.ini
 		extension=oauth.so
