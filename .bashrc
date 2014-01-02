@@ -114,6 +114,7 @@ fi
 # Dotan's setting below
 
 
+
 # When `cd`ing into a symlink, use the canonical directory path
 # http://unix.stackexchange.com/questions/56320/create-a-link-but-dont-change-the-canonical-path
 set -o physical
@@ -142,6 +143,7 @@ alias :q!='exit'
 alias c='clear;pwd;whoami'
 alias o='kde-open'
 alias diff='colordiff -U3'
+alias v='vim -c VimwikiIndex'
 
 #PS1="✈\h:\W$ "
 #PS1="\e[1;32m - \h:\W$\e[m "
