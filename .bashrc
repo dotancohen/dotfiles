@@ -217,6 +217,12 @@ function concatenate_args
 
 
 
+if [ -f ~/.git-completion.bash ]; then
+    . ~/.git-completion.bash
+fi
+
+
+
 # What is this for?
 output_selection()
 {
