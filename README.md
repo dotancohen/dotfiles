@@ -23,21 +23,21 @@ Use the following commands to download the dotfiles and to move them to their pr
 	wget http://github.com/dotancohen/dotfiles/archive/master.tar.gz
 	tar -xzf master.tar.gz
 	cd dotfiles-master/
-    cp -R .[!(|.|.git)]* ~
+	cp -R .[!(|.|.git)]* ~
 
 
 ### CentOS
 	wget http://github.com/dotancohen/dotfiles/archive/master.tar.gz
 	tar -xzf master.tar.gz
 	cd dotfiles-master/
-    cp .bash_profile ~
-    cp .bashrc ~
-    cp -r .bin ~
-    cp .colordiffrc ~
-    cp -r .config ~
-    cp .tmux.conf ~
-    cp -r .vim ~
-    cp .vimrc ~
+	cp .bash_profile ~
+	cp .bashrc ~
+	cp -r .bin ~
+	cp .colordiffrc ~
+	cp -r .config ~
+	cp .tmux.conf ~
+	cp -r .vim ~
+	cp .vimrc ~
 
 
 
@@ -45,7 +45,7 @@ BONUS - INSTALL FAVORITE PACKAGES
 ---------------------------------
 
 ### Ubuntu Server
-    sudo apt-get install tmux vim git nmap w3m tree aptitude exuberant-ctags ncdu colordiff
+	sudo apt-get install tmux vim git nmap w3m tree aptitude exuberant-ctags ncdu colordiff
 	sudo update-alternatives --config editor
 
 
@@ -61,7 +61,7 @@ DOUBLE BONUS - INSTALL TYPICAL SERVER PACKAGES
 ----------------------------------------------
 
 ### Ubuntu Server
-    sudo aptitude install zip unzip ruby openssl libopenssl-ruby curl apache2 php5 php5-curl libapache2-mod-php5 mysql-server libapache2-mod-auth-mysql php5-mysql openjdk-6-jdk gnuplot-nox python-gnuplot ntp php5-xdebug sysstat build-essential
+	sudo aptitude install zip unzip ruby openssl libopenssl-ruby curl apache2 php5 php5-curl libapache2-mod-php5 mysql-server libapache2-mod-auth-mysql php5-mysql openjdk-6-jdk gnuplot-nox python-gnuplot ntp php5-xdebug sysstat build-essential
 	sudo aptitude install ec2-api-tools ec2-ami-tools
 
 #### Install PHP OAuth support
