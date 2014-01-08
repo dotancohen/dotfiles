@@ -222,6 +222,10 @@ if [ -f ~/.git-completion.bash ]; then
     . ~/.git-completion.bash
 fi
 
+if [ -f ~/.bin/tmux-git.sh ]; then
+    . ~/.bin/tmux-git.sh
+fi
+
 
 
 # What is this for?
