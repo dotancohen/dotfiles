@@ -47,6 +47,7 @@ BONUS - INSTALL FAVORITE PACKAGES
 ### Ubuntu Server
 	sudo apt-get install tmux vim git nmap w3m tree aptitude exuberant-ctags ncdu colordiff caca-utils
 	sudo update-alternatives --config editor
+	sudo locale-gen en_DK.utf8
 
 
 ### CentOS
