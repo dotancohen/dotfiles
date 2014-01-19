@@ -65,6 +65,15 @@ DOUBLE BONUS - INSTALL TYPICAL SERVER PACKAGES
 	sudo aptitude install zip unzip ruby openssl libopenssl-ruby curl apache2 php5 php5-curl libapache2-mod-php5 mysql-server libapache2-mod-auth-mysql php5-mysql openjdk-6-jdk gnuplot-nox python-gnuplot ntp php5-xdebug sysstat build-essential
 	sudo aptitude install ec2-api-tools ec2-ami-tools
 
+#### Configure server
+	sudo vim /etc/hostname
+	sudo vim /etc/hosts
+	sudo chown -R ubuntu:ubuntu /var/www
+	mkdir -p /var/www/default/public_html
+	mv /var/www/index.html /var/www/default/public_html
+	sudo vim /var/apache2/sites-available/default
+	sudo service apache2 restart
+
 #### Install PHP OAuth and crypto support
 	sudo aptitude install php5-mcrypt liboauth-php php-pear php5-dev libpcre3-dev php-crypt-blowfish 
 	sudo pecl install oauth
