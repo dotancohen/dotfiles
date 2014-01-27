@@ -144,6 +144,10 @@ alias c='clear;pwd;whoami'
 alias o='kde-open'
 alias diff='colordiff -U3'
 alias v='vim -c VimwikiIndex'
+# Taskwarrior
+alias t='task'
+alias ta='task add'
+alias tl='task ls'
 
 #PS1="✈\h:\W$ "
 #PS1="\e[1;32m - \h:\W$\e[m "
