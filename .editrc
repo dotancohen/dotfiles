@@ -1,3 +1,7 @@
+# In dotfiles! 2014-03-11
+
+# This fixes broken keys such as Delete in the PHP CLI interpreter
+
 bind \\e[3~ ed-delete-next-char
 bind \\e[1;5C vi-next-word
 bind \\e[1;5D vi-prev-word
