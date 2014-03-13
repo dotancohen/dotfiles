@@ -33,8 +33,11 @@ Use the following commands to download the dotfiles and to move them to their pr
 	cp .bash_profile ~
 	cp .bashrc ~
 	cp -r .bin ~
+	cp -r .cmus ~
 	cp .colordiffrc ~
 	cp -r .config ~
+	cp .editrc ~
+	cp .git-completion.bash ~
 	cp .tmux.conf ~
 	cp -r .vim ~
 	cp .vimrc ~
