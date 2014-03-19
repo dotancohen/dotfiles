@@ -147,6 +147,7 @@ alias v='vim -c VimwikiIndex'
 # Taskwarrior
 alias t='task'
 alias ta='task add'
+alias tah='task add priority:H'
 alias tl='task ls'
 
 
