@@ -48,9 +48,11 @@ BONUS - INSTALL FAVORITE PACKAGES
 ---------------------------------
 
 ### Ubuntu Server
-	sudo apt-get install tmux vim git nmap w3m tree aptitude exuberant-ctags ncdu colordiff caca-utils
+	sudo apt-get install tmux vim git nmap w3m tree aptitude exuberant-ctags ncdu colordiff ack caca-utils aalib1 aview
 	sudo update-alternatives --config editor
 	sudo locale-gen en_DK.utf8
+
+	Note that either 'aalib1' or 'aview' will fail to install, the name has changed between versions.
 
 
 ### CentOS
@@ -65,7 +67,7 @@ DOUBLE BONUS - INSTALL TYPICAL SERVER PACKAGES
 ----------------------------------------------
 
 ### Ubuntu Server
-	sudo aptitude install zip unzip ruby openssl libopenssl-ruby curl apache2 php5 php5-curl libapache2-mod-php5 mysql-server libapache2-mod-auth-mysql php5-mysql openjdk-6-jdk gnuplot-nox python-gnuplot ntp php5-xdebug sysstat build-essential
+	sudo aptitude install zip unzip ruby openssl libopenssl-ruby curl apache2 php5 php5-curl libapache2-mod-php5 mysql-server libapache2-mod-auth-mysql php5-mysql openjdk-6-jdk gnuplot-nox python-gnuplot ntp php5-xdebug sysstat build-essential 
 	sudo aptitude install ec2-api-tools ec2-ami-tools
 
 #### Configure server
