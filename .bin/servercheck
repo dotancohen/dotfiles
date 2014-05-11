@@ -1,5 +1,5 @@
 #!/bin/bash
 
-ssh $@ 'hostname ; uname -a ; cat /etc/issue ; uptime ; printf "\n$ free\n" ; free -m ; printf "\n$ df\n" ; df -h ; printf "\n$ ps\n" ; ps aux | sort -rk 3 | head -n4 '
+ssh $@ 'hostname ; uname -a ; cat /etc/issue ; uptime ; printf "\n$ free\n" ; free -m ; printf "\n$ df\n" ; df -h -T --exclude tmpfs --exclude devtmpfs ; printf "\n$ ps\n" ; ps aux | sort -rk 3 | head -n4 '
 
 echo ''
