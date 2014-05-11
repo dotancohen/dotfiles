@@ -1,6 +1,5 @@
 #!/bin/bash
 
-ssh $@ 'hostname ; uname -a ; cat /etc/issue ; uptime ; printf "\n$ free\n" ; free -m ; printf "\n$ df\n" ; df -h ; printf "\n$ ps\n" ; ps aux | sort -rk 3 | head -n4 ; printf "\n$ openssl\n" ; dpkg -s openssl | grep Version ; dpkg -s libssl1.0.0 | grep Version ; openssl version -a | grep built'
+ssh $@ 'hostname ; uname -a ; cat /etc/issue ; uptime ; printf "\n$ free\n" ; free -m ; printf "\n$ df\n" ; df -h ; printf "\n$ ps\n" ; ps aux | sort -rk 3 | head -n4 '
 
-echo 'Expected: Version: 1.0.1-4ubuntu5.12 ; built on: Mon Apr  7 20:33:29 UTC 2014'
 echo ''
