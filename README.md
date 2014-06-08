@@ -88,8 +88,10 @@ DOUBLE BONUS - INSTALL TYPICAL SERVER PACKAGES
 	sudo vim /etc/hosts
 	sudo chown -R ubuntu:ubuntu /var/www
 	mkdir -p /var/www/default/public_html
-	mv /var/www/index.html /var/www/default/public_html
-	sudo vim /var/apache2/sites-available/default
+	mv /var/www/html/index.html /var/www/default/public_html (Ubuntu >=14.04)
+	mv /var/www/index.html /var/www/default/public_html (Ubuntu <14.04)
+	sudo vim /etc/apache2/sites-available/default
+	sudo a2enmod ssl
 	sudo service apache2 restart
 
 #### Install PHP OAuth and crypto support
