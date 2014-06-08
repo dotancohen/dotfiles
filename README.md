@@ -79,6 +79,7 @@ DOUBLE BONUS - INSTALL TYPICAL SERVER PACKAGES
 	sudo aptitude install zip unzip ruby openssl libopenssl-ruby curl apache2 php5 php5-curl libapache2-mod-php5 mysql-server libapache2-mod-auth-mysql php5-mysql openjdk-6-jdk gnuplot-nox python-gnuplot ntp php5-xdebug sysstat build-essential php5-json
 	sudo aptitude install ec2-api-tools ec2-ami-tools
 	sudo pip install awscli
+	sudo pear install mail Net_SMTP
 
 	Note that php5-json will fail to install in older Ubuntu versions which did not need this package.
 
