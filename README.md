@@ -48,7 +48,8 @@ BONUS - INSTALL FAVORITE PACKAGES
 ---------------------------------
 
 ### Ubuntu Server
-	sudo apt-get install tmux vim git nmap w3m tree aptitude exuberant-ctags ncdu colordiff ack caca-utils aalib1 aview python-pip
+	sudo apt-get install tmux vim git nmap w3m tree aptitude zip unzip exuberant-ctags ncdu colordiff ack-grep caca-utils aalib1 aview curl python-pip
+	sudo pip install awscli
 	sudo update-alternatives --config editor
 	sudo locale-gen en_DK.utf8
 
@@ -58,7 +59,7 @@ BONUS - INSTALL FAVORITE PACKAGES
 	sudo apt-get install python3-pip
 
 #### Install pip for Python 3 on Ubuntu 12.04 LTS
-	sudo apt-get install curl python3-dev
+	sudo apt-get install python3-dev
 	curl http://python-distribute.org/distribute_setup.py | sudo python3
 	curl https://raw.github.com/pypa/pip/master/contrib/get-pip.py | sudo python3
 	From: http://stackoverflow.com/a/13001357/343302
@@ -76,9 +77,8 @@ DOUBLE BONUS - INSTALL TYPICAL SERVER PACKAGES
 ----------------------------------------------
 
 ### Ubuntu Server
-	sudo aptitude install zip unzip ruby openssl libopenssl-ruby curl apache2 php5 php5-curl libapache2-mod-php5 mysql-server libapache2-mod-auth-mysql php5-mysql openjdk-6-jdk gnuplot-nox python-gnuplot ntp php5-xdebug sysstat build-essential php5-json
+	sudo aptitude install ruby openssl libopenssl-ruby curl zip unzip vim tmux git ncdu ack-grep apache2 php5 php5-curl libapache2-mod-php5 mysql-server libapache2-mod-auth-mysql php5-mysql openjdk-6-jdk gnuplot-nox python-gnuplot ntp php5-xdebug sysstat build-essential php5-json
 	sudo aptitude install ec2-api-tools ec2-ami-tools
-	sudo pip install awscli
 	sudo pear install mail Net_SMTP
 
 	Note that php5-json will fail to install in older Ubuntu versions which did not need this package.
