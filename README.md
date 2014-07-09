@@ -90,14 +90,16 @@ DOUBLE BONUS - INSTALL TYPICAL SERVER PACKAGES
 	mkdir -p /var/www/default/public_html
 	mv /var/www/html/index.html /var/www/default/public_html (Ubuntu >=14.04)
 	mv /var/www/index.html /var/www/default/public_html (Ubuntu <14.04)
-	sudo vim /etc/apache2/sites-available/default
+	sudo vim /etc/apache2/sites-available/000-default.conf (Ubuntu >=14.04)
+	sudo vim /etc/apache2/sites-available/default (Ubuntu <14.04)
 	sudo a2enmod ssl
 	sudo service apache2 restart
 
 #### Install PHP OAuth and crypto support
 	sudo aptitude install php5-mcrypt liboauth-php php5-dev libpcre3-dev php-crypt-blowfish
 	sudo pecl install oauth
-	sudo vim /etc/php5/conf.d/oauth.ini
+	sudo vim /etc/php5/mods-available/oauth.ini (Ubuntu >=14.04)
+	sudo vim /etc/php5/conf.d/oauth.ini (Ubuntu <14.04)
 		extension=oauth.so
 
 
