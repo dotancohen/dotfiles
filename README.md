@@ -77,7 +77,7 @@ DOUBLE BONUS - INSTALL TYPICAL SERVER PACKAGES
 ----------------------------------------------
 
 ### Ubuntu Server
-	sudo aptitude install ruby openssl libopenssl-ruby curl zip unzip vim tmux git ncdu ack-grep apache2 php5 php5-curl libapache2-mod-php5 mysql-server libapache2-mod-auth-mysql php5-mysql openjdk-6-jdk gnuplot-nox python-gnuplot ntp php5-xdebug sysstat build-essential php5-json
+	sudo aptitude install ruby openssl libopenssl-ruby curl zip unzip vim tmux git ncdu ack-grep apache2 php5 php5-curl libapache2-mod-php5 mysql-server libapache2-mod-auth-mysql php5-mysql openjdk-6-jdk gnuplot-nox python-gnuplot ntp php5-xdebug sysstat build-essential php5-json php-pear
 	sudo aptitude install ec2-api-tools ec2-ami-tools
 	sudo pear install mail Net_SMTP
 
@@ -95,7 +95,7 @@ DOUBLE BONUS - INSTALL TYPICAL SERVER PACKAGES
 	sudo service apache2 restart
 
 #### Install PHP OAuth and crypto support
-	sudo aptitude install php5-mcrypt liboauth-php php-pear php5-dev libpcre3-dev php-crypt-blowfish 
+	sudo aptitude install php5-mcrypt liboauth-php php5-dev libpcre3-dev php-crypt-blowfish
 	sudo pecl install oauth
 	sudo vim /etc/php5/conf.d/oauth.ini
 		extension=oauth.so
