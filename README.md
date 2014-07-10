@@ -48,21 +48,11 @@ BONUS - INSTALL FAVORITE PACKAGES
 ---------------------------------
 
 ### Ubuntu Server
-	sudo apt-get install tmux vim git nmap w3m tree aptitude zip unzip exuberant-ctags ncdu colordiff ack-grep caca-utils aalib1 aview curl python-pip
-	sudo pip install awscli
+	sudo apt-get install tmux vim nmap w3m tree aptitude exuberant-ctags ncdu colordiff ack-grep caca-utils aalib1 aview
 	sudo update-alternatives --config editor
 	sudo locale-gen en_DK.utf8
 
 	Note that either 'aalib1' or 'aview' will fail to install, the name has changed between versions.
-
-#### Install pip for Python 3 on Ubuntu >= 12.10
-	sudo apt-get install python3-pip
-
-#### Install pip for Python 3 on Ubuntu 12.04 LTS
-	sudo apt-get install python3-dev
-	curl http://python-distribute.org/distribute_setup.py | sudo python3
-	curl https://raw.github.com/pypa/pip/master/contrib/get-pip.py | sudo python3
-	From: http://stackoverflow.com/a/13001357/343302
 
 
 ### CentOS
@@ -77,29 +67,52 @@ DOUBLE BONUS - INSTALL TYPICAL SERVER PACKAGES
 ----------------------------------------------
 
 ### Ubuntu Server
-	sudo aptitude install ruby openssl libopenssl-ruby curl zip unzip vim tmux git ncdu ack-grep apache2 php5 php5-curl libapache2-mod-php5 mysql-server libapache2-mod-auth-mysql php5-mysql openjdk-6-jdk gnuplot-nox python-gnuplot ntp php5-xdebug sysstat build-essential php5-json php-pear
+
+#### Install most common packages
+	sudo aptitude install git openssl libopenssl-ruby curl zip unzip vim tmux git ncdu ack-grep apache2 php5 php5-curl libapache2-mod-php5 mysql-server libapache2-mod-auth-mysql php5-mysql openjdk-6-jdk gnuplot-nox python-gnuplot ntp php5-xdebug sysstat build-essential php5-json php-pear python-pip ruby
 	sudo aptitude install ec2-api-tools ec2-ami-tools
 	sudo pear install mail Net_SMTP
+	sudo pip install awscli
 
 	Note that php5-json will fail to install in older Ubuntu versions which did not need this package.
+
+#### Install pip for Python 3 on Ubuntu >= 12.10
+	sudo aptitude install python3-pip
+
+#### Install pip for Python 3 on Ubuntu 12.04 LTS
+	sudo aptitude install python3-dev
+	curl http://python-distribute.org/distribute_setup.py | sudo python3
+	curl https://raw.github.com/pypa/pip/master/contrib/get-pip.py | sudo python3
+	From: http://stackoverflow.com/a/13001357/343302
 
 #### Install PHP OAuth and crypto support
 	sudo aptitude install php5-mcrypt liboauth-php php5-dev libpcre3-dev php-crypt-blowfish
 	sudo pecl install oauth
-	sudo vim /etc/php5/mods-available/oauth.ini (Ubuntu >=14.04)
-	sudo vim /etc/php5/conf.d/oauth.ini (Ubuntu <14.04)
+	sudo vim /etc/php5/mods-available/oauth.ini # Ubuntu >=14.04
+	sudo vim /etc/php5/conf.d/oauth.ini # Ubuntu <14.04
 		extension=oauth.so
 
-#### Configure server
+#### Configure Apache
 	sudo chown -R ubuntu:ubuntu /var/www
 	mkdir -p /var/www/default/public_html
-	mv /var/www/html/index.html /var/www/default/public_html (Ubuntu >=14.04)
-	mv /var/www/index.html /var/www/default/public_html (Ubuntu <14.04)
+	mv /var/www/html/index.html /var/www/default/public_html # Ubuntu >=14.04
+	mv /var/www/index.html /var/www/default/public_html # Ubuntu <14.04
 	rm -rf /var/www/html
-	sudo vim /etc/apache2/sites-available/000-default.conf (Ubuntu >=14.04)
-	sudo vim /etc/apache2/sites-available/default (Ubuntu <14.04)
+	sudo vim /etc/apache2/sites-available/000-default.conf # Ubuntu >=14.04
+	sudo vim /etc/apache2/sites-available/default # Ubuntu <14.04
 	sudo a2enmod ssl
 	sudo service apache2 restart
+
+#### Configure Server
+	mkdir ~/.ssh/config/pem
+	mv FOOBAR.pem ~/.ssh/config/pem # Send this from desktop via scp
+	vim ~/.ssh/config # Open Firewall on FOOBAR server to allow this!
+		Host FOOBAR
+			Hostname FOOBAR
+			User FOOBAR
+			IdentityFile ~/.ssh/pem/FOOBAR.pem
+			IdentitiesOnly yes
+
 	sudo aptitude update
 	sudo aptitude upgrade
 	sudo vim /etc/hostname
