@@ -83,24 +83,28 @@ DOUBLE BONUS - INSTALL TYPICAL SERVER PACKAGES
 
 	Note that php5-json will fail to install in older Ubuntu versions which did not need this package.
 
-#### Configure server
-	sudo vim /etc/hostname
-	sudo vim /etc/hosts
-	sudo chown -R ubuntu:ubuntu /var/www
-	mkdir -p /var/www/default/public_html
-	mv /var/www/html/index.html /var/www/default/public_html (Ubuntu >=14.04)
-	mv /var/www/index.html /var/www/default/public_html (Ubuntu <14.04)
-	sudo vim /etc/apache2/sites-available/000-default.conf (Ubuntu >=14.04)
-	sudo vim /etc/apache2/sites-available/default (Ubuntu <14.04)
-	sudo a2enmod ssl
-	sudo service apache2 restart
-
 #### Install PHP OAuth and crypto support
 	sudo aptitude install php5-mcrypt liboauth-php php5-dev libpcre3-dev php-crypt-blowfish
 	sudo pecl install oauth
 	sudo vim /etc/php5/mods-available/oauth.ini (Ubuntu >=14.04)
 	sudo vim /etc/php5/conf.d/oauth.ini (Ubuntu <14.04)
 		extension=oauth.so
+
+#### Configure server
+	sudo chown -R ubuntu:ubuntu /var/www
+	mkdir -p /var/www/default/public_html
+	mv /var/www/html/index.html /var/www/default/public_html (Ubuntu >=14.04)
+	mv /var/www/index.html /var/www/default/public_html (Ubuntu <14.04)
+	rm -rf /var/www/html
+	sudo vim /etc/apache2/sites-available/000-default.conf (Ubuntu >=14.04)
+	sudo vim /etc/apache2/sites-available/default (Ubuntu <14.04)
+	sudo a2enmod ssl
+	sudo service apache2 restart
+	sudo aptitude update
+	sudo aptitude upgrade
+	sudo vim /etc/hostname
+	sudo vim /etc/hosts
+	sudo shutdown -r now
 
 
 ### CentOS
