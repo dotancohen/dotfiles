@@ -51,7 +51,7 @@ BONUS - INSTALL FAVORITE PACKAGES
 ---------------------------------
 
 ### Ubuntu Server
-	sudo apt-get install tmux vim nmap w3m tree aptitude exuberant-ctags ncdu colordiff ack-grep caca-utils aalib1 aview
+	sudo apt-get install tmux vim nmap w3m tree aptitude exuberant-ctags ncdu colordiff ack-grep caca-utils aalib1 aview sysstat
 	sudo update-alternatives --config editor
 	sudo locale-gen en_DK.utf8
 
