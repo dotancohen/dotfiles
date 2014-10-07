@@ -40,6 +40,7 @@ set tags=~/tags
 
 
 
+execute pathogen#infect()
 set nocompatible
 set noexpandtab
 set hidden
