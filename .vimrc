@@ -1,4 +1,4 @@
-" 2013-11-19
+" 2014-10-07
 " In git dotfiles!
 
 "Press \a to find non-ascii characters
@@ -19,7 +19,8 @@
 "To search for unusual letter combinations, grep /usr/share/dict/
 " Also: http://web.archive.org/web/20081226163912/http://jeff560.tripod.com/words7.html
 
-"Currently broken: function name in status line, cygwin target
+"Currently broken: function name in status line
+"Currently broken: cygwin target
 "To Add: close single/double quote only if the preceding character is not alphanumeric
 "To Add: Closing () only if the next character is whitespace or end of line
 
@@ -47,7 +48,6 @@ set ignorecase
 set smartcase
 set nu
 set incsearch
-set cursorline
 set tabstop=4
 set shiftwidth=4
 set enc=utf-8
@@ -58,13 +58,15 @@ set scrolloff=3
 set listchars=tab:._,trail:.
 set foldmethod=manual foldmarker={,} foldlevel=15
 "set t_ti= t_te=
-hi CursorLine term=none cterm=none ctermbg=20
 colorscheme desert
+set cursorline
 set showcmd " show (partial) commands
 let mapleader = '\'
 let g:solarized_termcolors=256
 filetype plugin on
 syntax on
+"hi CursorLine term=none cterm=none ctermbg=20
+hi CursorLine term=none cterm=none ctermbg=DarkBlue
 
 "cmap w!! %!sudo tee > /dev/null %
 cmap w!! exec 'w !sudo dd of=' . shellescape(expand('%'))
@@ -497,6 +499,7 @@ endfunc
 
 
 " Add current buffer number and count of all buffers to ruler
+let g:zbuflistcount = 0
 set rulerformat=%22(%{g:zbuflistcount};%M%n\ %=%l,%c%V\ %P%)
 autocmd BufAdd * let g:zbuflistcount += 1
 autocmd BufDelete * let g:zbuflistcount -= 1
