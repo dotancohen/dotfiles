@@ -137,6 +137,18 @@ nnoremap <leader>b :b#<Return>
 nnoremap <leader>l :ls<Return>
 
 
+"For maintaining Sara and Bassy's code
+"http://superuser.com/questions/692969/position-cursor-at-end-of-variable-or-array-member
+nnoremap \bb /^\s*if.*;$<Return>
+nnoremap \bf /iff(%lDa {}Op==
+nnoremap \be /iff(%lDa {}Op==jJelDa {}Op==
+nnoremap \bs <Esc>O$sql = ;<Esc>==jf"lda"i$sql<Esc>k$P
+"nnoremap \bg /[^ ]=[^" ]<Return>a <Esc>la <Esc>
+"nnoremap \bg /\$[a-zA-Z0-9_]*=<Return>ea <Esc>ea <Esc>
+
+
+
+
 
 "For vBulletin
 inoremap $vb $vbulletin->
