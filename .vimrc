@@ -70,7 +70,7 @@ syntax on
 cmap w!! exec 'w !sudo dd of=' . shellescape(expand('%'))
 
 
-autocmd FileType python set omnifunc=pythoncomplete#Complete
+"autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
@@ -95,6 +95,7 @@ autocmd BufLeave COMMIT_EDITMSG set nopaste
 
 
 " Python
+
 "Press \// to comment the current line and copy it below
 :au BufNewFile,BufRead *.py noremap <leader>// <Esc>YpkI#<space><Esc>j0
 
