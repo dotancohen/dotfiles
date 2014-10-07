@@ -88,6 +88,12 @@ autocmd BufNewFile,BufRead COMMIT_EDITMSG set paste
 autocmd BufLeave COMMIT_EDITMSG set nopaste
 
 
+" Nerdtree
+
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+nnoremap <leader>\ <Esc>:NERDTreeToggle<Return>
+
+
 " PHP
 
 :au BufNewFile,BufRead *.html set filetype=php
@@ -631,6 +637,9 @@ endif
 
 
 " VimWiki
+
+autocmd FileType vimwiki set nonu
+autocmd FileType vimwiki :NERDTree ~/.vimwiki
 
 let wiki_1 = {}
 
