@@ -622,3 +622,33 @@ if has("win32") || has("win64")
 else
    set directory=$HOME/.tmp
 endif
+
+
+
+" VimWiki
+
+let wiki_1 = {}
+
+" non-HTML-related options
+let wiki_1.path = '~/.vimwiki/test/'
+let wiki_1.index = 'Test'
+let wiki_1.nested_syntaxes = {'python': 'python', 'php': 'php'}
+"let wiki_1.syntax = 'markdown'
+"let wiki_1.ext = '.mdox'
+
+" HTML-related options
+let wiki_1.path_html = '~/public_html/vimwiki/test/'
+let wiki_1.auto_export = 1
+"let wiki_1.html_template = '~/public_html/template.tpl'
+"let wiki_1.template_path = '~/public_html/templates'
+"let wiki_1.template_default = 'default_template'
+"let wiki_1.template_ext = '.html'
+"let wiki_1.css_name = 'style.css'
+"let wiki_1.maxhi = 1
+
+let wiki_2 = {}
+
+let g:vimwiki_list = [wiki_1, wiki_2]
+
+
+
