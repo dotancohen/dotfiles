@@ -53,7 +53,7 @@ BONUS - INSTALL FAVORITE PACKAGES
 These are packages that I usually install on desktops and servers to make life sweeter.
 
 ### Ubuntu
-	sudo apt-get install tmux vim nmap w3m tree aptitude exuberant-ctags ncdu colordiff ack-grep caca-utils aalib1 aview sysstat zsh python3-pip
+	sudo apt-get install tmux vim nmap w3m tree aptitude exuberant-ctags ncdu colordiff ack-grep caca-utils aalib1 aview sysstat zsh python3-pip python3-matplotlib
 	curl -L http://install.ohmyz.sh | sh
 	sudo update-alternatives --config editor
 	sudo locale-gen en_DK.utf8
