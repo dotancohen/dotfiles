@@ -50,13 +50,20 @@ Use the following commands to download the dotfiles and to move them to their pr
 BONUS - INSTALL FAVORITE PACKAGES
 ---------------------------------
 
-### Ubuntu Server
-	sudo apt-get install tmux vim nmap w3m tree aptitude exuberant-ctags ncdu colordiff ack-grep caca-utils aalib1 aview sysstat zsh
+These are packages that I usually install on desktops and servers to make life sweeter.
+
+### Ubuntu
+	sudo apt-get install tmux vim nmap w3m tree aptitude exuberant-ctags ncdu colordiff ack-grep caca-utils aalib1 aview sysstat zsh python3-pip
 	curl -L http://install.ohmyz.sh | sh
 	sudo update-alternatives --config editor
 	sudo locale-gen en_DK.utf8
 
-Note that either 'aalib1' or 'aview' will fail to install, the name has changed between versions.
+Note that either 'aalib1' or 'aview' may fail to install, they are the same package but the name has changed between versions.
+
+#### Install pip for Python 3 on Ubuntu 12.04 LTS
+	sudo aptitude install python3-dev
+	curl http://python-distribute.org/distribute_setup.py | sudo python3
+	curl https://raw.github.com/pypa/pip/master/contrib/get-pip.py | sudo python3
 
 
 ### CentOS
@@ -80,16 +87,6 @@ DOUBLE BONUS - INSTALL TYPICAL SERVER PACKAGES
 
 Note that mysql-server-5.6 will fail to install in older Ubuntu versions. Use mysql-server instead.  
 Note that php5-json will fail to install in older Ubuntu versions which did not need this package.
-
-#### Install pip for Python 3 on Ubuntu >= 12.10
-	sudo aptitude install python3-pip
-
-#### Install pip for Python 3 on Ubuntu 12.04 LTS
-	sudo aptitude install python3-dev
-	curl http://python-distribute.org/distribute_setup.py | sudo python3
-	curl https://raw.github.com/pypa/pip/master/contrib/get-pip.py | sudo python3
-
-From: http://stackoverflow.com/a/13001357/343302
 
 #### Install PHP OAuth and crypto support
 	sudo aptitude install php5-mcrypt liboauth-php php5-dev libpcre3-dev php-crypt-blowfish
