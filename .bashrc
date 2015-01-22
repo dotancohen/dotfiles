@@ -162,14 +162,15 @@ function newpass {
 	times=10
 	shift
 	while [[ $n -lt $times ]]; do
-		</dev/urandom tr -dc '0-9a-zA-Z@#%&' | head -c$SIZE; echo ""
+		</dev/urandom tr -dc '0-9a-zA-Z@#%_-=+?~/' | head -c$SIZE; echo ""
 		$@
 		n=$((n+1))
 	done
 }
-# No `!$'"\ because of Bash issues
-# No ( because of VIM autocompletion
-# No )*^ because doubleclicking counts them as a separate word
+# No `!$&'"\: because of Bash issues
+# No ([{< because of VIM autocompletion
+# No )*^]}|,>; because doubleclicking counts them as a separate word
+
 
 
 
