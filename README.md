@@ -57,6 +57,7 @@ These are packages that I usually install on desktops and servers to make life s
 	curl -L http://install.ohmyz.sh | sh
 	sudo update-alternatives --config editor
 	sudo locale-gen en_DK.utf8
+	sudo vim /etc/default/sysstat
 
 Note that either 'aalib1' or 'aview' may fail to install, they are the same package but the name has changed between versions.
 
