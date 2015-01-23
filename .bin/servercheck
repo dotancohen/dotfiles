@@ -1,5 +1,9 @@
 #!/bin/bash
 
-ssh $@ 'hostname ; uname -a ; cat /etc/issue ; uptime ; printf "\n$ free\n" ; free -m ; printf "\n$ df\n" ; df -h -T --exclude tmpfs --exclude devtmpfs ; printf "\n$ ps\n" ; ps aux | sort -rk 3 | head -n4 '
+# ssh alpha "mysql -uroot -p'3276solrServer)#!&' -e 'SHOW DATABASES;'"
+# http://dba.stackexchange.com/questions/2820/why-dont-my-my-cnf-settings-work/2822#2822
+
+ssh -F /home/dotancohen/.ssh/config $@ 'hostname ; uname -a ; cat /etc/issue ; echo 'CPU cores: $(grep -c ^processor /proc/cpuinfo 2>/dev/null)' ; uptime ; printf "\n$ free\n" ; free -m ; printf "\n$ df\n" ; df -h -T --exclude tmpfs --exclude devtmpfs ; printf "\n$ ps CPU\n" ; ps aux | sort -rk 3 | head -n4 ; printf "\n$ ps MEM\n" ; ps aux | sort -rk 4 | head -n4 ; printf "\n$ iostat\n" ; iostat -x 1 2 ; printf "$ apachectl\n" ; sudo apachectl -S ; printf "\n SHOW DATABASES" ; sudo mysql --defaults-extra-file=/etc/mysql/debian.cnf -e "SHOW DATABASES"'
+
 
 echo ''
