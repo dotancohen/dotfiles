@@ -1,0 +1,14 @@
+#!/bin/bash
+
+function runServercheck {
+	printf "\n\n---- $1 $(date +%Y-%m-%d\ %H:%M:%S)\n\n"
+	~/.bin/servercheck $1
+}
+
+# Servers defined in ~/.ssh/config
+declare -a SERVERS=('alpha' 'beta')
+
+for SERV in "${SERVERS[@]}"
+do
+	runServercheck $SERV
+done
