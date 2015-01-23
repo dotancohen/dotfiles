@@ -230,9 +230,11 @@ PROMPT_COMMAND=$(
     for i in $retval ${PIPESTATUS[@]}; do ((c += $i)); done
 
     if (($c == 0)); then
-        PS1="\[$GREEN\] - \h(${WINDOW}):\W$(parse_git_branch)$ \[$STOP\]"
+        #PS1="\[$GREEN\] - \h(${WINDOW}):\W$(parse_git_branch)$ \[$STOP\]"
+        PS1="\[$GREEN\] - \h(${WINDOW}):\W$ \[$STOP\]"
     else
-        PS1="\[$RED\] - \h(${WINDOW}):\W$(parse_git_branch)$ \[$STOP\]"
+        #PS1="\[$RED\] - \h(${WINDOW}):\W$(parse_git_branch)$ \[$STOP\]"
+        PS1="\[$RED\] - \h(${WINDOW}):\W$ \[$STOP\]"
     fi
 EOF
 )
