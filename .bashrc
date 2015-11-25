@@ -162,7 +162,7 @@ function newpass {
 	times=10
 	shift
 	while [[ $n -lt $times ]]; do
-		</dev/urandom tr -dc '0-9a-zA-Z@#%_-=+?~/' | head -c$SIZE; echo ""
+		</dev/urandom tr -dc '0-9a-zA-Z@#%_=+?~/-' | head -c$SIZE; echo ""
 		$@
 		n=$((n+1))
 	done
