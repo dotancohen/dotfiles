@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Sticky Keys
+xkbset exp 120 =b =r -m =ma =a -st =twokey =latchlock -sl -bo =f =dumbbell -led =feature =slowwarn =slowpress =slowaccept =slowreject =slowrelease =bouncereject =stickybeep =ov1 =ov2 =ignoregrouplock
+xkbset b r rate 660 40 perkeyrepeat 00ffffffdffffbbffadfffefffedffff9ffffffffffffffffff7ffffffffffff -m 1 ma 160 40 30 30 500 -a st -twokey -latchlock -sl 500 -bo 500 f dumbbell -led feature slowwarn slowpress slowaccept -slowreject -slowrelease bouncereject -stickybeep -ov1 -ov2 groupswrap wrap 1 ignoregrouplock nullify -shift -lock -control -mod1 -mod2 -mod3 -mod4 -mod5 ignorelock -shift -lock -control -mod1 -mod2 -mod3 -mod4 -mod5
+
+# Swap Caps Lock and Escape
+setxkbmap -device $(xinput | grep keyboard | grep Microsoft | awk '{print $7}' | awk -F'=' '{print $2}') -option caps:swapescape
+
+# Best modifier key indicator for Unity:
+# http://askubuntu.com/a/441292/23087
