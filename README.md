@@ -53,13 +53,31 @@ BONUS - INSTALL FAVORITE PACKAGES
 These are packages that I usually install on desktops and servers to make life sweeter.
 
 ### Ubuntu
-	sudo apt-get install tmux vim vim-gtk nmap w3m tree aptitude exuberant-ctags ncdu colordiff ack-grep caca-utils aalib1 aview sysstat zsh python3-pip python3-matplotlib
+	sudo apt-get install tmux vim vim-gtk nmap w3m tree aptitude exuberant-ctags ncdu colordiff ack-grep caca-utils aalib1 aview sysstat zsh python3-pip python3-matplotlib ubuntu-restricted-extras
 	curl -L http://install.ohmyz.sh | sh
 	sudo update-alternatives --config editor
 	sudo locale-gen en_DK.utf8
 	sudo vim /etc/default/sysstat
 
 Note that either 'aalib1' or 'aview' may fail to install, they are the same package but the name has changed between versions.
+
+
+#### Configure Unity to be usable
+	sudo aptitude install shutter pinta indicator-multiload
+
+The system load indicator may need to be launched from the Dash.
+Disable Unity Online Search Feature!
+
+
+##### Modifier keys indicator
+    http://askubuntu.com/questions/402315/how-to-add-a-keyboard-modifier-state-applet-to-unity-panel
+
+
+##### Remove icons from desktop
+    gconftool-2 --get /apps/nautilus/preferences/desktop_is_home_dir
+    gconftool-2 --set /apps/nautilus/preferences/desktop_is_home_dir --type bool false
+    killall nautilus
+
 
 #### Install pip for Python 3 on Ubuntu 12.04 LTS
 	sudo aptitude install python3-dev
@@ -126,3 +144,4 @@ Note that php5-json will fail to install in older Ubuntu versions which did not 
 
 ### CentOS
 	(incomplete)
+
