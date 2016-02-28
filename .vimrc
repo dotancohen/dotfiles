@@ -34,7 +34,8 @@ set shell=/bin/bash\ -l
 
 " Things to change per install
 set noswapfile
-set tags=~/tags
+"set tags=~/tags
+set tags=./php.tags;/
 "set nobackup
 "set nowritebackup
 
