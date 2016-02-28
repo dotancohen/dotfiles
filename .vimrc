@@ -596,6 +596,39 @@ nnoremap <leader>a :call FindNonAscii()<CR>
 
 
 
+map <leader>f :call BrowseDoc()<Return><Return>
+function! BrowseDoc()
+    if b:current_syntax == "php"
+
+		" phpRegion
+		let keywords_php = ['phpFCKeyword', 'phpKeyword', 'phpBoolean', 'phpClasses', 'phpConstants', 'phpFunctions', 'phpInclude', 'phpMagicConstants', 'phpServerVars', 'phpStatement', 'phpSuperglobals', 'phpType']
+		let is_php = 0
+
+		for kw in keywords_php
+			if count(map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")'), kw)
+				let is_php = 1
+			endif
+		endfor
+
+		if is_php
+			!firefox "http://php.net/manual-lookup.php?pattern=<cword>"
+		else
+			!firefox "https://codex.wordpress.org/Function_Reference/<cword>"
+		endif
+
+    elseif b:current_syntax == "perl"
+        !firefox "http://perldoc.perl.org/search.html?q=<cword>"
+
+    elseif b:current_syntax == "python"
+        !firefox "https://docs.python.org/3.5/search.html?q=<cword>"
+
+    else
+		execute "!firefox -new-tab 'https://google.com/?q=" . &ft . "\\%20<cword>'"
+
+    endif
+endfunction
+
+
 
 " Specific environment settings below
 
