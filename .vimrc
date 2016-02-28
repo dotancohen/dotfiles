@@ -42,6 +42,7 @@ set tags=~/tags
 
 execute pathogen#infect()
 set nocompatible
+set viminfo='100,<500,s10,h "hhh
 set noexpandtab
 set hidden
 set smartindent
