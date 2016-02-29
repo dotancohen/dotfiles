@@ -25,6 +25,30 @@
 "To Add: Closing () only if the next character is whitespace or end of line
 
 
+nnoremap ק e
+nnoremap ר r
+nnoremap א t
+nnoremap ט y
+nnoremap ו u
+nnoremap ן i
+nnoremap ם o
+nnoremap פ p
+nnoremap ש a
+nnoremap ד s
+nnoremap ג d
+nnoremap כ f
+nnoremap ע g
+nnoremap י h
+nnoremap ח j
+nnoremap ל k
+nnoremap ך l
+nnoremap ז z
+nnoremap ס x
+nnoremap ב c
+nnoremap ה v
+nnoremap נ b
+nnoremap מ n
+nnoremap צ m
 
 " Things to bring back home
 "set clipboard=unnamed "This puts everything into + register. This was horrible!
