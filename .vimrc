@@ -660,6 +660,11 @@ endfunction
 
 
 
+" Easy paste
+map <leader>p :r!cat<Return>
+
+
+
 " Specific environment settings below
 
 if &diff " For vimdiff
