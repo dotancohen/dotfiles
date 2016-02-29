@@ -99,6 +99,11 @@ hi CursorLine term=none cterm=none ctermbg=DarkBlue
 cmap w!! exec 'w !sudo dd of=' . shellescape(expand('%'))
 
 
+" Requires VIM 7.4
+" https://dgl.cx/2014/10/vim-blowfish
+:set cryptmethod=blowfish2
+
+
 "autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
