@@ -128,15 +128,15 @@ set scrolloff=3
 set listchars=tab:._,trail:.
 set foldmethod=manual foldmarker={,} foldlevel=15
 "set t_ti= t_te=
-colorscheme desert
-set cursorline
+"colorscheme desert
 set showcmd " show (partial) commands
 let mapleader = '\'
 let g:solarized_termcolors=256
 "filetype plugin on
 syntax on
+set cursorline
 "hi CursorLine term=none cterm=none ctermbg=20
-hi CursorLine term=none cterm=none ctermbg=DarkBlue
+hi CursorLine term=none cterm=none ctermbg=White
 
 "cmap w!! %!sudo tee > /dev/null %
 cmap w!! exec 'w !sudo dd of=' . shellescape(expand('%'))
@@ -648,14 +648,14 @@ hi def link User2 DiffDelete
 " Match non-ascii characters
 " [^\x00-\x7F]
 
-highlight InterestingCharacters ctermbg=darkblue guibg=darkblue
-"highlight InterestingCharacters ctermbg=red guibg=red
-"highlight InterestingCharacters guibg=Red ctermbg=2
-match InterestingCharacters /\%108v.\+\|\s\+$\|[^\x00-\x7F]/
-autocmd BufWinEnter * match InterestingCharacters /\%108v.\+\|\s\+$\|[^\x00-\x7F]/
-autocmd InsertEnter * match InterestingCharacters /\%108v.\+\|\s\+$\|[^\x00-\x7F]/
-autocmd InsertLeave * match InterestingCharacters /\%108v.\+\|\s\+$\|[^\x00-\x7F]/
-autocmd BufWinLeave * call clearmatches()
+"highlight InterestingCharacters ctermbg=darkblue guibg=darkblue
+""highlight InterestingCharacters ctermbg=red guibg=red
+""highlight InterestingCharacters guibg=Red ctermbg=2
+"match InterestingCharacters /\%108v.\+\|\s\+$\|[^\x00-\x7F]/
+"autocmd BufWinEnter * match InterestingCharacters /\%108v.\+\|\s\+$\|[^\x00-\x7F]/
+"autocmd InsertEnter * match InterestingCharacters /\%108v.\+\|\s\+$\|[^\x00-\x7F]/
+"autocmd InsertLeave * match InterestingCharacters /\%108v.\+\|\s\+$\|[^\x00-\x7F]/
+"autocmd BufWinLeave * call clearmatches()
 
 
 
