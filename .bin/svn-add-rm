@@ -1,0 +1,4 @@
+#!/bin/bash
+
+svn rm `svn status | grep -P '^!' | awk '{print $2}'`
+svn add `svn status | grep -P '^\?' | awk '{print $2}'`

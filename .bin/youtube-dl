@@ -1,0 +1,4 @@
+#!/bin/bash
+
+echo "Downloading with highest quality audio"
+~/.bin/youtube-dl-folder/youtube-dl -f bestaudio "$@"
