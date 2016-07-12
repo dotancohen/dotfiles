@@ -1,0 +1,31 @@
+#!/bin/bash
+
+if [ "$#" -ne 2 ]
+	then
+	printf "Usage:\n\$ $0 <plugin-dir> <theme-dir>\n"
+	exit 1
+fi
+
+ORIG_DIR=$(pwd)
+
+P_TRIMMED=$(echo $1 | sed 's|/*$||')
+P_NAME=$(echo $P_TRIMMED | sed 's|^.*/||')
+
+T_TRIMMED=$(echo $2 | sed 's|/*$||')
+T_NAME=$(echo $T_TRIMMED | sed 's|^.*/||')
+
+
+printf "\n\nConfiguring plugin translated binary file...\n"
+cd $1
+cd lang
+msgfmt he.po -o $P_NAME-he_IL.mo 
+
+cd $ORIG_DIR
+
+printf "\n\nConfiguring theme translated binary file...\n"
+cd $2
+cd lang
+msgfmt he.po -o he_IL.mo 
+
+exit 0
+
