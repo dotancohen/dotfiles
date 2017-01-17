@@ -1,1 +1,36 @@
 set surround
+
+nnoremap ק e
+nnoremap ר r
+nnoremap א t
+nnoremap ט y
+nnoremap ו u
+nnoremap ן i
+nnoremap ם o
+nnoremap פ p
+nnoremap ש a
+nnoremap ד s
+nnoremap ג d
+nnoremap כ f
+nnoremap ע g
+nnoremap י h
+nnoremap ח j
+nnoremap ל k
+nnoremap ך l
+nnoremap ז z
+nnoremap ס x
+nnoremap ב c
+nnoremap ה v
+nnoremap נ b
+nnoremap מ n
+nnoremap צ m
+
+inoremap kk <Esc>A
+inoremap jh <Left>
+inoremap jl <Right>
+
+
+nnoremap <Space> <C-F>
+nnoremap <Backspace> <C-B>
+"nnoremap <Tab> $%
+nnoremap <Tab> <A-/>
