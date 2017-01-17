@@ -18,6 +18,8 @@ let Tlist_Display_Prototype = 1 "display full prototype instead of just function
 nnoremap <F5> :TlistToggle
 nnoremap <F6> :TlistShowPrototype
 
+set timeoutlen=250 " Wait before expecting sequences such as 'kk' to finish
+
 set statusline=[%n]\ %<%f\ %([%1*%M%*%R%Y]%)\ \ \ [%{Tlist_Get_Tagname_By_Line()}]\ %=%-19(\LINE\ [%l/%L]\ COL\ [%02c%03V]%)\ %P
 
 filetype off                  " required
