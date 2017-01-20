@@ -1,0 +1,40 @@
+#!/bin/bash
+
+if [ "$#" -ne 2 ]
+	then
+	printf "Usage:\n\$ $0 <plugin-dir> <theme-dir>\n"
+	exit 1
+fi
+
+ORIG_DIR=$(pwd)
+
+P_TRIMMED=$(echo $1 | sed 's|/*$||')
+P_NAME=$(echo $P_TRIMMED | sed 's|^.*/||')
+
+T_TRIMMED=$(echo $2 | sed 's|/*$||')
+T_NAME=$(echo $T_TRIMMED | sed 's|^.*/||')
+
+
+echo $P_NAME
+echo $T_NAME
+echo ""
+
+echo "Configuring plugin translation files..."
+cd $1
+php ~/personal/code/wpdev/tools/i18n/makepot.php wp-plugin . lang/$P_NAME.pot
+cd lang
+msginit --local=he_IL --input=$P_NAME.pot --output-file=he.NEW.po
+msgmerge he.po he.NEW.po --output-file=he.po
+rm he.NEW.po 
+
+cd $ORIG_DIR
+
+echo "Configuring theme translation files..."
+cd $2
+php ~/personal/code/wpdev/tools/i18n/makepot.php wp-theme . lang/$P_NAME.pot
+cd lang
+msginit --local=he_IL --input=$P_NAME.pot --output-file=he.NEW.po
+msgmerge he.po he.NEW.po --output-file=he.po
+rm he.NEW.po 
+
+exit 0

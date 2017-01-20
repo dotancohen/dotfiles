@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [ "$#" -ne 2 ]
+	then
+	printf "Usage:\n\$ $0 <plugin-dir> <theme-dir>\n"
+	exit 1
+fi
+
+vim $1/lang/he.po $2/lang/he.po
+
+exit 0

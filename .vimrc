@@ -1,4 +1,49 @@
-" 2013-11-19
+
+" BOTH PATHOGEN AND VUNDLE ARE INSTALLED! USE ONLY VUNDLE!
+" http://lepture.com/en/2012/vundle-vs-pathogen
+
+
+" TagList options
+let Tlist_Close_On_Select = 1 "close taglist window once we selected something
+let Tlist_Exit_OnlyWindow = 1 "if taglist window is the only window left, exit vim
+let Tlist_Show_Menu = 1 "show Tags menu in gvim
+let Tlist_Show_One_File = 1 "show tags of only one file
+let Tlist_GainFocus_On_ToggleOpen = 1 "automatically switch to taglist window
+let Tlist_Highlight_Tag_On_BufEnter = 1 "highlight current tag in taglist window
+let Tlist_Process_File_Always = 1 "even without taglist window, create tags file, required for displaying tag in statusline
+let Tlist_Use_Right_Window = 1 "display taglist window on the right
+let Tlist_Display_Prototype = 1 "display full prototype instead of just function name
+"let Tlist_Ctags_Cmd = /path/to/exuberant/ctags
+
+nnoremap <F5> :TlistToggle
+nnoremap <F6> :TlistShowPrototype
+
+set timeoutlen=250 " Wait before expecting sequences such as 'kk' to finish
+
+set statusline=[%n]\ %<%f\ %([%1*%M%*%R%Y]%)\ \ \ [%{Tlist_Get_Tagname_By_Line()}]\ %=%-19(\LINE\ [%l/%L]\ COL\ [%02c%03V]%)\ %P
+
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+Bundle 'joonty/vim-phpqa.git'
+
+
+" Don't run messdetector on save (default = 1)
+let g:phpqa_messdetector_autorun = 0
+
+" Don't run codesniffer on save (default = 1)
+let g:phpqa_codesniffer_autorun = 0
+
+
+
+" 2014-10-07
 " In git dotfiles!
 
 "Press \a to find non-ascii characters
@@ -19,11 +64,36 @@
 "To search for unusual letter combinations, grep /usr/share/dict/
 " Also: http://web.archive.org/web/20081226163912/http://jeff560.tripod.com/words7.html
 
-"Currently broken: function name in status line, cygwin target
+"Currently broken: function name in status line
+"Currently broken: cygwin target
 "To Add: close single/double quote only if the preceding character is not alphanumeric
 "To Add: Closing () only if the next character is whitespace or end of line
 
 
+nnoremap ק e
+nnoremap ר r
+nnoremap א t
+nnoremap ט y
+nnoremap ו u
+nnoremap ן i
+nnoremap ם o
+nnoremap פ p
+nnoremap ש a
+nnoremap ד s
+nnoremap ג d
+nnoremap כ f
+nnoremap ע g
+nnoremap י h
+nnoremap ח j
+nnoremap ל k
+nnoremap ך l
+nnoremap ז z
+nnoremap ס x
+nnoremap ב c
+nnoremap ה v
+nnoremap נ b
+nnoremap מ n
+nnoremap צ m
 
 " Things to bring back home
 "set clipboard=unnamed "This puts everything into + register. This was horrible!
@@ -33,13 +103,16 @@ set shell=/bin/bash\ -l
 
 " Things to change per install
 set noswapfile
-set tags=~/tags
+"set tags=~/tags
+set tags=./php.tags;/
 "set nobackup
 "set nowritebackup
 
 
 
+execute pathogen#infect()
 set nocompatible
+set viminfo='100,<500,s10,h "hhh
 set noexpandtab
 set hidden
 set smartindent
@@ -47,7 +120,6 @@ set ignorecase
 set smartcase
 set nu
 set incsearch
-set cursorline
 set tabstop=4
 set shiftwidth=4
 set enc=utf-8
@@ -58,19 +130,26 @@ set scrolloff=3
 set listchars=tab:._,trail:.
 set foldmethod=manual foldmarker={,} foldlevel=15
 "set t_ti= t_te=
-hi CursorLine term=none cterm=none ctermbg=20
-colorscheme desert
+"colorscheme desert
 set showcmd " show (partial) commands
 let mapleader = '\'
 let g:solarized_termcolors=256
-filetype plugin on
+"filetype plugin on
 syntax on
+set cursorline
+"hi CursorLine term=none cterm=none ctermbg=20
+hi CursorLine term=none cterm=none ctermbg=White
 
 "cmap w!! %!sudo tee > /dev/null %
 cmap w!! exec 'w !sudo dd of=' . shellescape(expand('%'))
 
 
-autocmd FileType python set omnifunc=pythoncomplete#Complete
+" Requires VIM 7.4
+" https://dgl.cx/2014/10/vim-blowfish
+:set cryptmethod=blowfish2
+
+
+"autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
@@ -85,6 +164,12 @@ autocmd BufNewFile,BufRead COMMIT_EDITMSG set paste
 autocmd BufLeave COMMIT_EDITMSG set nopaste
 
 
+" Nerdtree
+
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+nnoremap <leader>\ <Esc>:NERDTreeToggle<Return>
+
+
 " PHP
 
 :au BufNewFile,BufRead *.html set filetype=php
@@ -95,6 +180,7 @@ autocmd BufLeave COMMIT_EDITMSG set nopaste
 
 
 " Python
+
 "Press \// to comment the current line and copy it below
 :au BufNewFile,BufRead *.py noremap <leader>// <Esc>YpkI#<space><Esc>j0
 
@@ -135,6 +221,18 @@ nnoremap <Backspace> <C-B>
 nnoremap <Tab> $%
 nnoremap <leader>b :b#<Return>
 nnoremap <leader>l :ls<Return>
+
+
+"For maintaining Sara and Bassy's code
+"http://superuser.com/questions/692969/position-cursor-at-end-of-variable-or-array-member
+nnoremap \bb /^\s*if.*;$<Return>
+nnoremap \bf /iff(%lDa {}Op==
+nnoremap \be /iff(%lDa {}Op==jJelDa {}Op==
+nnoremap \bs <Esc>O$sql = ;<Esc>==jf"lda"i$sql<Esc>k$P
+"nnoremap \bg /[^ ]=[^" ]<Return>a <Esc>la <Esc>
+"nnoremap \bg /\$[a-zA-Z0-9_]*=<Return>ea <Esc>ea <Esc>
+
+
 
 
 
@@ -484,6 +582,7 @@ endfunc
 
 
 " Add current buffer number and count of all buffers to ruler
+let g:zbuflistcount = 0
 set rulerformat=%22(%{g:zbuflistcount};%M%n\ %=%l,%c%V\ %P%)
 autocmd BufAdd * let g:zbuflistcount += 1
 autocmd BufDelete * let g:zbuflistcount -= 1
@@ -551,14 +650,14 @@ hi def link User2 DiffDelete
 " Match non-ascii characters
 " [^\x00-\x7F]
 
-highlight InterestingCharacters ctermbg=darkblue guibg=darkblue
-"highlight InterestingCharacters ctermbg=red guibg=red
-"highlight InterestingCharacters guibg=Red ctermbg=2
-match InterestingCharacters /\%108v.\+\|\s\+$\|[^\x00-\x7F]/
-autocmd BufWinEnter * match InterestingCharacters /\%108v.\+\|\s\+$\|[^\x00-\x7F]/
-autocmd InsertEnter * match InterestingCharacters /\%108v.\+\|\s\+$\|[^\x00-\x7F]/
-autocmd InsertLeave * match InterestingCharacters /\%108v.\+\|\s\+$\|[^\x00-\x7F]/
-autocmd BufWinLeave * call clearmatches()
+"highlight InterestingCharacters ctermbg=darkblue guibg=darkblue
+""highlight InterestingCharacters ctermbg=red guibg=red
+""highlight InterestingCharacters guibg=Red ctermbg=2
+"match InterestingCharacters /\%108v.\+\|\s\+$\|[^\x00-\x7F]/
+"autocmd BufWinEnter * match InterestingCharacters /\%108v.\+\|\s\+$\|[^\x00-\x7F]/
+"autocmd InsertEnter * match InterestingCharacters /\%108v.\+\|\s\+$\|[^\x00-\x7F]/
+"autocmd InsertLeave * match InterestingCharacters /\%108v.\+\|\s\+$\|[^\x00-\x7F]/
+"autocmd BufWinLeave * call clearmatches()
 
 
 
@@ -570,6 +669,44 @@ function! FindNonAscii()
 endfunction
 nnoremap <leader>a :call FindNonAscii()<CR>
 
+
+
+map <leader>f :call BrowseDoc()<Return><Return>
+function! BrowseDoc()
+    if b:current_syntax == "php"
+
+		" phpRegion
+		let keywords_php = ['phpFCKeyword', 'phpKeyword', 'phpBoolean', 'phpClasses', 'phpConstants', 'phpFunctions', 'phpInclude', 'phpMagicConstants', 'phpServerVars', 'phpStatement', 'phpSuperglobals', 'phpType']
+		let is_php = 0
+
+		for kw in keywords_php
+			if count(map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")'), kw)
+				let is_php = 1
+			endif
+		endfor
+
+		if is_php
+			!firefox "http://php.net/manual-lookup.php?pattern=<cword>"
+		else
+			!firefox "https://codex.wordpress.org/Function_Reference/<cword>"
+		endif
+
+    elseif b:current_syntax == "perl"
+        !firefox "http://perldoc.perl.org/search.html?q=<cword>"
+
+    elseif b:current_syntax == "python"
+        !firefox "https://docs.python.org/3.5/search.html?q=<cword>"
+
+    else
+		execute "!firefox -new-tab 'https://google.com/?q=" . &ft . "\\%20<cword>'"
+
+    endif
+endfunction
+
+
+
+" Easy paste
+map <leader>p :r!cat<Return>
 
 
 
@@ -610,3 +747,36 @@ if has("win32") || has("win64")
 else
    set directory=$HOME/.tmp
 endif
+
+
+
+" VimWiki
+
+autocmd FileType vimwiki set nonu
+autocmd FileType vimwiki :NERDTree ~/.vimwiki
+
+let wiki_1 = {}
+
+" non-HTML-related options
+let wiki_1.path = '~/.vimwiki/test/'
+let wiki_1.index = 'Test'
+let wiki_1.nested_syntaxes = {'python': 'python', 'php': 'php'}
+"let wiki_1.syntax = 'markdown'
+"let wiki_1.ext = '.mdox'
+
+" HTML-related options
+let wiki_1.path_html = '~/public_html/vimwiki/test/'
+let wiki_1.auto_export = 1
+"let wiki_1.html_template = '~/public_html/template.tpl'
+"let wiki_1.template_path = '~/public_html/templates'
+"let wiki_1.template_default = 'default_template'
+"let wiki_1.template_ext = '.html'
+"let wiki_1.css_name = 'style.css'
+"let wiki_1.maxhi = 1
+
+let wiki_2 = {}
+
+let g:vimwiki_list = [wiki_1, wiki_2]
+
+
+

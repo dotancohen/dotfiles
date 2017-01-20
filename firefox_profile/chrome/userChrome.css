@@ -1,0 +1,9 @@
+@namespace url(http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul);
+.tab-close-button{
+	display:none !important;
+}
+
+@namespace url(http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul);
+#forward-button[disabled=true]{
+	visibility: visible !important; margin-right: 25px !important; opacity: 1 !important;
+}

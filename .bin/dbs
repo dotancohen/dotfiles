@@ -1,0 +1,11 @@
+#!/bin/bash
+echo ""
+grep -ir "$@" * | grep -v "/.svn/" | head -n 100
+
+# Need to make the head pipe optional
+# Optional only print filenames, and  no repeats
+
+# Need to remove these lines:
+#grep: access-logs: Permission denied
+#grep: BackupNow/.system: Permission denied
+#grep: perl5/lib64: No such file or directory

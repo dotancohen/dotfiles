@@ -1,0 +1,7 @@
+#!/bin/bash
+
+export LC_TIME=en_DK.utf8
+#unset LC_ALL
+
+pkill /usr/bin/thunderbird
+/usr/bin/thunderbird
