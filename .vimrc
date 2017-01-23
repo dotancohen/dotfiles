@@ -95,6 +95,12 @@ nnoremap נ b
 nnoremap מ n
 nnoremap צ m
 
+
+
+" For .pot files
+nnoremap <leader>tf /fuzzy<return>
+nnoremap <leader>tn /str ""<return>
+
 " Things to bring back home
 "set clipboard=unnamed "This puts everything into + register. This was horrible!
 set shell=/bin/bash\ -l
