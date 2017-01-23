@@ -1,7 +1,8 @@
+" TODO: All <leader>* mappings should be typable in the timeoutlen time! This
+" usually meand single-character left-hand mappings!
 
 " BOTH PATHOGEN AND VUNDLE ARE INSTALLED! USE ONLY VUNDLE!
 " http://lepture.com/en/2012/vundle-vs-pathogen
-
 
 " TagList options
 let Tlist_Close_On_Select = 1 "close taglist window once we selected something
