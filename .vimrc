@@ -223,7 +223,6 @@ set stl=%!STL()
 
 
 
-nnoremap , :
 nnoremap <Space> <C-F>
 nnoremap <Backspace> <C-B>
 nnoremap <Tab> $%
@@ -250,11 +249,6 @@ inoremap $vb $vbulletin->
 "Press c to replace object syntax with array syntax
 "nmap c xxi['<Esc>ea']<Esc>/-><Return>
 
-"Press \d to insert debug() function calls
-nnoremap <leader>d <Esc>Odebug($);<Left><Left>
-
-"Press \id to insert debug() function
-nnoremap <leader>id <Esc>Ofunction debug($var)<Return>{<Return>echo "<pre>";<Return>var_dump($var);<Return>echo "</pre>";<Return>return TRUE;<Return>}<Return><Return>
 
 
 "Press ^R in Visual mode to replace selected text
@@ -268,10 +262,10 @@ noremap <leader>c <Esc>:s/\v<(false\|null\|true\|access\|add\|as\|asc\|begin\|by
 
 
 
-inoremap ii <Esc>
 inoremap kk <Esc>A
 inoremap jh <Left>
 inoremap jl <Right>
+
 
 
 
@@ -330,12 +324,10 @@ inoremap (j     (
 inoremap ()     ()
 
 inoremap "      ""<Left>
-inoremap "<Return>  "<Return>"<Esc>O
 inoremap "j     "
 inoremap ""     ""
 
 inoremap '      ''<Left>
-inoremap '<Return>  '<Return>'<Esc>O
 inoremap 'j     '
 inoremap ''     ''
 
