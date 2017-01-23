@@ -115,6 +115,8 @@ set tags=./php.tags;/
 "set nowritebackup
 
 
+let g:instant_markdown_autostart = 0
+
 
 execute pathogen#infect()
 set nocompatible
