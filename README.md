@@ -14,6 +14,7 @@ TODO
 4. Sample file templates:
     /etc/apache2/sites-available/010-site.conf
 	~/.ssh/config
+5. Information from http://www.dotancohen.com/eng/kubuntu_install.html
 
 
 
