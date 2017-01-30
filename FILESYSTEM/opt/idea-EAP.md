@@ -15,6 +15,11 @@ https://confluence.jetbrains.com/display/CLION/Early+Access+Program
 ## Rider .NET IDE
 https://www.jetbrains.com/rider/download/
 
+## IntelliJ IDEA
+https://confluence.jetbrains.com/display/IDEADEV/EAP
+
+
+
 # Install
 
 1. Install EAP versions to `/opt/`:
