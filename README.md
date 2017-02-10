@@ -14,22 +14,25 @@ TODO
 4. Sample file templates:
     /etc/apache2/sites-available/010-site.conf
 	~/.ssh/config
+5. Information from http://www.dotancohen.com/eng/kubuntu_install.html
 
 
 
 INSTALL
 -------
 
+### Dotfiles
+
 Use the following commands to download the dotfiles and to move them to their proper location:
 
-### Ubuntu Server
+#### Ubuntu
 	wget http://github.com/dotancohen/dotfiles/archive/master.tar.gz
 	tar -xzf master.tar.gz
 	cd dotfiles-master/
 	cp -R .[!(|.|.git)]* ~
 
 
-### CentOS
+#### CentOS
 	wget http://github.com/dotancohen/dotfiles/archive/master.tar.gz
 	tar -xzf master.tar.gz
 	cd dotfiles-master/
@@ -44,6 +47,23 @@ Use the following commands to download the dotfiles and to move them to their pr
 	cp .tmux.conf ~
 	cp -r .vim ~
 	cp .vimrc ~
+
+### Other packages
+
+#### Ubuntu
+	sudo vi /etc/apt/sources.list # Enable "partner" repository
+	sudo apt-get update
+	sudo apt-get install dkms firefox aptitude kolourpaint4 synaptic unrar rar wicd ttf-mscorefonts-installer qt4-qtconfig libdvdread4 vim-full p7zip p7zip-full gucharmap filelight
+	sudo aptitude remove dragonplayer vim-tiny
+	sudo /usr/share/doc/libdvdread4/install-css.sh
+	sudo aptitude install python-software-properties ubuntu-restricted-extras livemedia-utils ffmpeg gstreamer0.10-plugins-ugly gstreamer0.10-plugins-ugly-multiverse libxine1-ffmpeg kmozillahelper automake1.9 intltool libtool cvs cmake build-essential libphonon-dev apt-file kdelibs5-dev vlc subversion python-gtkspell mercurial python-matplotlib unoconv mplayer recode tree pavucontrol whois bzr kchmviewer sun-java6-jre sun-java6-jdk pdftk nautilus digikam unclutter evince krename ssh-server openssh-server mtr wine eog eog-plugins
+	sudo aptitude dist-upgrade
+	apt-file update
+	sudo /etc/init.d/vboxdrv setup
+	sudo update-alternatives --config java // use Sun Java
+
+#### Other people's Ubuntu machines that I will need to maintain
+	sudo apt-get tightvncserver x11vnc vnc-java
 
 
 

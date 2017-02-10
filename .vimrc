@@ -1,7 +1,8 @@
+" TODO: All <leader>* mappings should be typable in the timeoutlen time! This
+" usually meand single-character left-hand mappings!
 
 " BOTH PATHOGEN AND VUNDLE ARE INSTALLED! USE ONLY VUNDLE!
 " http://lepture.com/en/2012/vundle-vs-pathogen
-
 
 " TagList options
 let Tlist_Close_On_Select = 1 "close taglist window once we selected something
@@ -95,6 +96,12 @@ nnoremap נ b
 nnoremap מ n
 nnoremap צ m
 
+
+
+" For .pot files
+nnoremap <leader>tf /fuzzy<return>
+nnoremap <leader>tn /str ""<return>
+
 " Things to bring back home
 "set clipboard=unnamed "This puts everything into + register. This was horrible!
 set shell=/bin/bash\ -l
@@ -108,6 +115,8 @@ set tags=./php.tags;/
 "set nobackup
 "set nowritebackup
 
+
+let g:instant_markdown_autostart = 0
 
 
 execute pathogen#infect()
@@ -146,7 +155,9 @@ cmap w!! exec 'w !sudo dd of=' . shellescape(expand('%'))
 
 " Requires VIM 7.4
 " https://dgl.cx/2014/10/vim-blowfish
-:set cryptmethod=blowfish2
+if !has("nvim")
+	:set cryptmethod=blowfish
+endif
 
 
 "autocmd FileType python set omnifunc=pythoncomplete#Complete
@@ -215,7 +226,6 @@ set stl=%!STL()
 
 
 
-nnoremap , :
 nnoremap <Space> <C-F>
 nnoremap <Backspace> <C-B>
 nnoremap <Tab> $%
@@ -242,11 +252,6 @@ inoremap $vb $vbulletin->
 "Press c to replace object syntax with array syntax
 "nmap c xxi['<Esc>ea']<Esc>/-><Return>
 
-"Press \d to insert debug() function calls
-nnoremap <leader>d <Esc>Odebug($);<Left><Left>
-
-"Press \id to insert debug() function
-nnoremap <leader>id <Esc>Ofunction debug($var)<Return>{<Return>echo "<pre>";<Return>var_dump($var);<Return>echo "</pre>";<Return>return TRUE;<Return>}<Return><Return>
 
 
 "Press ^R in Visual mode to replace selected text
@@ -260,10 +265,10 @@ noremap <leader>c <Esc>:s/\v<(false\|null\|true\|access\|add\|as\|asc\|begin\|by
 
 
 
-inoremap ii <Esc>
 inoremap kk <Esc>A
 inoremap jh <Left>
 inoremap jl <Right>
+
 
 
 
@@ -322,12 +327,10 @@ inoremap (j     (
 inoremap ()     ()
 
 inoremap "      ""<Left>
-inoremap "<Return>  "<Return>"<Esc>O
 inoremap "j     "
 inoremap ""     ""
 
 inoremap '      ''<Left>
-inoremap '<Return>  '<Return>'<Esc>O
 inoremap 'j     '
 inoremap ''     ''
 
