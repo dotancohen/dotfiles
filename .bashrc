@@ -295,7 +295,14 @@ output_selection()
 
 
 
-#alias my="mysql -u'someUser' -p'somePassword' -U someDatabase"
+my() {
+	mysql --defaults-group-suffix="$@"
+}
+
+myd() {
+	mysqldump --defaults-group-suffix="$@"
+}
+
 
 ######################################
 ###
