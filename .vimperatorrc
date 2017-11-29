@@ -1,7 +1,13 @@
 
-
 # https://news.ycombinator.com/item?id=13397404
 # Remove CSS
 nmap s :emenu View.Page Style.No Style<CR>
 # Restore CSS
 nmap <S-s> :emenu View.Page Style.Basic Page Style<CR>
+
+
+# https://www.howtogeek.com/268116/is-there-a-way-to-force-enable-reader-view-in-mozilla-firefox/
+# Enable Reader mode
+:command reader execute “open about:reader?url=” + content.location.href (And then you type :reader to get the Reader View)
+:nmap :reader (A simple Ctrl+R and that is it)
+
