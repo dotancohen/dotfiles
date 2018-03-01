@@ -23,7 +23,7 @@ set timeoutlen=250 " Wait before expecting sequences such as 'kk' to finish
 
 set statusline=[%n]\ %<%f\ %([%1*%M%*%R%Y]%)\ \ \ [%{Tlist_Get_Tagname_By_Line()}]\ %=%-19(\LINE\ [%l/%L]\ COL\ [%02c%03V]%)\ %P
 
-filetype off                  " required
+"filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -139,15 +139,15 @@ set scrolloff=3
 set listchars=tab:._,trail:.
 set foldmethod=manual foldmarker={,} foldlevel=15
 "set t_ti= t_te=
-"colorscheme desert
+colorscheme desert
 set showcmd " show (partial) commands
 let mapleader = '\'
 let g:solarized_termcolors=256
-"filetype plugin on
+filetype plugin on
 syntax on
 set cursorline
-"hi CursorLine term=none cterm=none ctermbg=20
-hi CursorLine term=none cterm=none ctermbg=White
+hi CursorLine term=none cterm=none ctermbg=20
+"hi CursorLine term=none cterm=none ctermbg=White
 
 "cmap w!! %!sudo tee > /dev/null %
 cmap w!! exec 'w !sudo dd of=' . shellescape(expand('%'))
@@ -244,18 +244,13 @@ nnoremap \bs <Esc>O$sql = ;<Esc>==jf"lda"i$sql<Esc>k$P
 
 
 
-
-
-"For vBulletin
-inoremap $vb $vbulletin->
+"For Wordpress ACF
+nnoremap <leader>uf :r!php -r "echo 'field_'.uniqid();";<Return>
 
 "Press c to replace object syntax with array syntax
 "nmap c xxi['<Esc>ea']<Esc>/-><Return>
 
 
-
-"Press ^R in Visual mode to replace selected text
-vnoremap <C-r> "py:%s/<C-r>p//gc<left><left><left>
 
 "Press \s to upper-case common SQL keywords on the current line
 noremap <leader>s <Esc>:s/\v<(select\|from\|insert\|into\|table\|where\|delete\|limit\|order\|by\|asc\|desc\|set\|update\|ignore\|values)>/\U\0/g<Return>
